@@ -31,3 +31,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "coding"
 include(":week1")
+include(":test1")
