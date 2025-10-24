@@ -43,7 +43,8 @@ internal class Solution2 {
             listOf("F", "G", "H", "J")  // 오른쪽 구역
         )
 
-        val taken = S.trim().takeIf { it.isNotEmpty() }
+        val taken = S.trim()
+            .takeIf { it.isNotEmpty() }
             ?.split(" ")
             ?.filter { it.isNotBlank() }
             ?.toSet()
@@ -56,8 +57,8 @@ internal class Solution2 {
             val zoneC = seatGroups[2].all { seatLabel ->  "$rowNumber$seatLabel" !in taken }
 
             result += when {
-                zoneA && zoneC -> 2
-                zoneA || zoneB || zoneC -> 1
+                zoneA && zoneC -> 2 // 왼쪽, 오른쪽은 동시에 가능, 중앙은 불가능
+                zoneA || zoneB || zoneC -> 1 // 하나의 구역만 가능할떄
                 else -> 0
             }
         }

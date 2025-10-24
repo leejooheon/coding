@@ -37,7 +37,9 @@ internal class Solution3 {
         var best = 0
         A.toList().chunked(2).forEach { (left, right) ->
             val chainLength = maxOf(1, maxChainEndingAt[left] + 1)
+
             if (chainLength > maxChainEndingAt[right]) maxChainEndingAt[right] = chainLength
+
             if (maxChainEndingAt[right] > best) best = maxChainEndingAt[right]
         }
 
